@@ -130,7 +130,7 @@ Java streams uses [fork join pool](https://docs.oracle.com/javase/8/docs/api/jav
 And by default parallelism of fork join pool calculates
 using number of available processors. In my case this is 3.
 For IO operations this is bottleneck.
-So lets increase parallelism of the fork join pool using to value 1000.
+So lets increase parallelism of the fork join pool to value 1000.
 
     -Djava.util.concurrent.ForkJoinPool.common.parallelism=1000
     
@@ -175,7 +175,7 @@ creating https connection. Lets add connection pool :
       }
       
       
-So app can keep in pool up to 2000 https connection for 10 seconds.
+So app can keep up to 2000 https connection in pool for 10 seconds.
 
 ## Jmeter third run results/analyses  
 
@@ -188,15 +188,16 @@ So app can keep in pool up to 2000 https connection for 10 seconds.
     
  So we improved performance almost in 3 times from 26 to 71 rps.  
  Overall performance improvement is 10 times from 6 to 71 rps.
- But We see that maximum time is high 7 seconds. it's a lot bc affects overall performance & UI client's won't wait so long.
- So we need to limit number of requests to handle.
+ But We see that maximum time is high 7 seconds. 
+ It's a lot bc affects overall performance & UI client's won't wait so long.  
+ So we need to limit number of requests to handle.  
  We can do it using specified tomcat properties :
  
      server.tomcat.accept-count=80
      server.tomcat.max-connections=80
      server.tomcat.max-threads=160 
      
-App will reject(send Connection refused) to all connections ones 160 connection is reached.
+App will reject(send Connection refused) to all clients ones 160 connection is reached.
 
 ## Jmeter forth run results/analyses  
 
