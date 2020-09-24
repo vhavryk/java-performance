@@ -7,10 +7,10 @@ spring boot microservice
 
 We will use 2 java microserveces :
 
-**external-service** :  "Real life" microservice accessable by https
+**external-service** :  "Real life" microservice accessible by https
 
 **facade-service** : This microservice will reads data 
-from external-service & sends result to clients. We are going to improve perfomance of this service.
+from external-service & sends result to clients. We are going to improve performance of this service.
 
 ## What You need
 - Java 8
