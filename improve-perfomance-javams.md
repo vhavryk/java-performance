@@ -111,7 +111,7 @@ Run Jmeter 5.3.1 & open file **perfomance-testing.jmx** in root of the source fo
 | Number of processors | 4 |  
 
 We are going to load test the following url : 
-http://localhost:8080/data/1,500,920,200
+http://localhost:8080/data/1,500,920,200  
 So go to Jmeter and press start button.
 
 ## Jmeter first run results/analyses
