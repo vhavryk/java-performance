@@ -51,6 +51,10 @@ https://localhost:8543/external-data/300
 This one also created by [Spring Initializer](https://start.spring.io/)
 And have 2 major classes :
 
+#### ExternalService 
+
+Reads data from external service using externalServiceClient & calculate sum of the times.
+
     @Service
     public class ExternalService {
     
@@ -68,7 +72,10 @@ And have 2 major classes :
       }
     }
     
-Reads data from external service using externalServiceClient & calculate sum of the times.
+#### ExternalServiceClient
+
+We will use [openfeign](https://github.com/OpenFeign/feign) library to read data from external service.
+Current implementation of the http client based on [OKHttp library](https://square.github.io/okhttp/)
 
     @FeignClient(name = "external-service", url = "${external-service.url}", configuration = ServiceConfiguration.class)
     public interface ExternalServiceClient {
@@ -77,8 +84,6 @@ Reads data from external service using externalServiceClient & calculate sum of 
       Data load(@PathVariable("time") Long time);
     }
     
-We will use [openfeign](https://github.com/OpenFeign/feign) library to read data from external service.
-Current implementation of the http client based on [OKHttp library](https://square.github.io/okhttp/)
   
 Run **FacadeServiceApplication** class   
 Call http://localhost:8080/data/1,500,920,20000  
