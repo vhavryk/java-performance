@@ -20,7 +20,7 @@ from external-service & sends result to clients. We are going to improve perfoma
 
 ## Download source
 
-First of all need to download source from 
+First of all need to download source from https://github.com/vhavryk/java-performance
 
 ## External service
 

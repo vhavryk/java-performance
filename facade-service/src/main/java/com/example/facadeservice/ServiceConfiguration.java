@@ -49,7 +49,7 @@ public class ServiceConfiguration {
     okhttp3.OkHttpClient client = new okhttp3.OkHttpClient.Builder()
         .sslSocketFactory(sslContext.getSocketFactory(), trustManager)
         .hostnameVerifier((s, sslSession) -> true)
-        .connectionPool(new ConnectionPool(2000, 10, TimeUnit.SECONDS))
+        //.connectionPool(new ConnectionPool(2000, 10, TimeUnit.SECONDS))
         .build();
 
     OkHttpClient okHttpClient = new OkHttpClient(client);
